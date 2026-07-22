@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sandeep Devarapalli — AI/ML Engineer</title>
+<meta name="description" content="Sandeep Devarapalli — AI/ML Engineer with 5+ years building LLM, RAG, deep learning and MLOps solutions across healthcare, financial services and enterprise environments." />
+<meta name="author" content="Sandeep Devarapalli" />
+<meta name="keywords" content="Sandeep Devarapalli, AI/ML Engineer, Generative AI, LLM, RAG, LangChain, GPT-4, Hugging Face, TensorFlow, PyTorch, MLOps, AWS SageMaker, Azure AI, Kubernetes" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+:root{
+  --bg:#0a0812;
+  --surface:rgba(255,255,255,.045);
+  --stroke:rgba(255,255,255,.10);
+  --stroke-lit:rgba(167,139,250,.45);
+  --text:#efeaf8;
+  --text-dim:#a297bd;
+  --iris:#a78bfa;
+  --coral:#ff7d5c;
+  --amber:#ffc978;
+  --aqua:#5ad1c6;
+
+  --display:"Manrope",system-ui,sans-serif;
+  --body:"Inter",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+
+  --wrap:1120px;
+  --r:16px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16.5px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.15;letter-spacing:-.02em;margin:0 0 .55em}
+p{margin:0 0 1em}
+a{color:var(--iris);text-decoration:none}
+img{max-width:100%;height:auto}
+::selection{background:rgba(167,139,250,.35)}
+
+.aura{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aura span{position:absolute;border-radius:50%;filter:blur(95px)}
+.aura .a1{width:52vw;height:52vw;background:#8b5cf6;top:-18vw;left:-10vw;opacity:.20;animation:drift1 24s ease-in-out infinite alternate}
+.aura .a2{width:44vw;height:44vw;background:#ff6b45;top:40vh;right:-14vw;opacity:.14;animation:drift2 30s ease-in-out infinite alternate}
+.aura .a3{width:40vw;height:40vw;background:#38bdae;bottom:-16vw;left:26vw;opacity:.12;animation:drift1 34s ease-in-out infinite alternate-reverse}
+@keyframes drift1{to{transform:translate3d(6vw,5vh,0) scale(1.12)}}
+@keyframes drift2{to{transform:translate3d(-7vw,-6vh,0) scale(1.08)}}
+.grid-fade{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px);
+  background-size:66px 66px;
+  -webkit-mask-image:radial-gradient(ellipse 85% 58% at 45% 0%,#000 28%,transparent 76%);
+  mask-image:radial-gradient(ellipse 85% 58% at 45% 0%,#000 28%,transparent 76%)}
+.wrap{width:min(90%,var(--wrap));margin:0 auto;position:relative;z-index:2}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;border-bottom:1px solid transparent;transition:background .35s,border-color .35s}
+.nav.stuck{background:rgba(10,8,18,.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom-color:var(--stroke)}
+.nav-in{width:min(92%,var(--wrap));margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;color:var(--text)}
+.brand .chip{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;font-size:12.5px;color:#150c22;background:linear-gradient(135deg,var(--iris),var(--coral))}
+.nav-links{display:flex;gap:26px}
+.nav-links a{font-size:14px;color:var(--text-dim);position:relative;padding:4px 0;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--iris);transition:width .3s}
+.nav-links a:hover{color:var(--text)}.nav-links a:hover::after{width:100%}
+.burger{display:none;background:none;border:1px solid var(--stroke);color:var(--text);width:42px;height:42px;border-radius:12px;font-size:17px;cursor:pointer}
+.drawer{position:fixed;inset:0;z-index:70;background:rgba(10,8,18,.97);display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.drawer.open{display:flex}
+.drawer a{font-family:var(--display);font-size:26px;font-weight:600;color:var(--text);padding:12px}
+.drawer .close{position:absolute;top:18px;right:22px;background:none;border:1px solid var(--stroke);color:var(--text);width:44px;height:44px;border-radius:12px;font-size:19px;cursor:pointer}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:120px 0 80px}
+.hero-in{max-width:900px}
+.badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--iris);border:1px solid var(--stroke-lit);background:rgba(167,139,250,.07);border-radius:999px;padding:7px 15px;margin-bottom:26px}
+.badge i{font-size:7px;animation:blip 2s ease-out infinite}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.5rem);font-weight:800;margin:0 0 10px}
+.hero h1 .grad{background:linear-gradient(100deg,var(--iris) 0%,var(--coral) 62%,var(--amber) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.typeline{font-family:var(--mono);font-size:clamp(.88rem,2.3vw,1.12rem);color:var(--text-dim);min-height:1.8em;margin-bottom:18px}
+.typeline .cursor{display:inline-block;width:9px;background:var(--iris);margin-left:2px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.lede{color:var(--text-dim);max-width:58ch;font-size:1.04rem}
+.cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:12px;font-weight:600;font-size:14.5px;border:1px solid var(--stroke);color:var(--text);transition:transform .25s,box-shadow .25s,background .25s,border-color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(120deg,var(--iris),var(--coral));color:#160d24;border-color:transparent;box-shadow:0 10px 30px rgba(167,139,250,.24)}
+.btn.primary:hover{box-shadow:0 16px 40px rgba(255,125,92,.30)}
+.btn.ghost:hover{border-color:var(--stroke-lit);background:rgba(167,139,250,.08)}
+.socials{display:flex;gap:11px;margin-top:26px}
+.socials a{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--stroke);color:var(--text-dim);font-size:17px;transition:.28s}
+.socials a:hover{color:var(--iris);border-color:var(--stroke-lit);background:rgba(167,139,250,.09);transform:translateY(-3px)}
+.domains{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px}
+.domains span{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);border:1px solid var(--stroke);border-radius:999px;padding:6px 13px}
+
+/* sections */
+section{padding:104px 0;position:relative;z-index:2}
+.head{margin-bottom:52px;max-width:660px}
+.head.mid{margin-inline:auto;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--iris);margin-bottom:14px}
+.eyebrow::before{content:"";width:22px;height:1px;background:linear-gradient(90deg,var(--iris),transparent)}
+.head.mid .eyebrow::before{display:none}
+.head h2{font-size:clamp(1.85rem,4.6vw,2.8rem);font-weight:700}
+.head p{color:var(--text-dim);margin:0}
+.card{background:var(--surface);border:1px solid var(--stroke);border-radius:var(--r);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-6px);border-color:var(--stroke-lit);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+
+/* about */
+.about{max-width:820px}
+.about p{color:var(--text-dim)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.skill{padding:28px 24px}
+.skill i.ic{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;font-size:19px;color:var(--iris);background:rgba(167,139,250,.11);border:1px solid var(--stroke-lit);margin-bottom:18px}
+.skill h3{font-size:1.05rem;margin-bottom:14px}
+.tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+.tags li{font-family:var(--mono);font-size:11.5px;color:var(--text-dim);border:1px solid var(--stroke);border-radius:7px;padding:4px 9px;transition:.25s}
+.skill:hover .tags li{border-color:rgba(255,125,92,.32);color:var(--text)}
+
+/* timeline */
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--iris),var(--coral),transparent)}
+.job{position:relative;padding-bottom:46px}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:-33px;top:7px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--coral)}
+.job.now::before{border-color:var(--iris);box-shadow:0 0 0 0 rgba(167,139,250,.5);animation:ping 2.4s ease-out infinite}
+@keyframes ping{70%{box-shadow:0 0 0 12px rgba(167,139,250,0)}100%{box-shadow:0 0 0 0 rgba(167,139,250,0)}}
+.job .when{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--iris)}
+.job h3{font-size:1.22rem;margin:8px 0 3px}
+.job .co{color:var(--coral);font-weight:600;margin-bottom:14px}
+.job ul{margin:0;padding-left:19px;color:var(--text-dim)}
+.job li{margin-bottom:9px}
+.job li::marker{color:var(--iris)}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.proj{padding:28px 25px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.proj::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--iris),var(--coral),var(--amber));opacity:.8}
+.proj .no{font-family:var(--mono);font-size:11px;color:var(--text-dim);letter-spacing:.15em}
+.proj h3{font-size:1.12rem;margin:10px 0 12px}
+.proj p{color:var(--text-dim);font-size:.96rem}
+.proj .tags{margin-top:auto;padding-top:17px;border-top:1px dashed var(--stroke)}
+
+/* credentials */
+.creds{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.cred{padding:28px 25px}
+.cred h3{display:flex;align-items:center;gap:11px;font-size:1.05rem;margin-bottom:8px}
+.cred h3 i{color:var(--amber)}
+.cred ul{list-style:none;margin:0;padding:0}
+.cred li{padding:14px 0;border-bottom:1px solid var(--stroke);font-weight:500}
+.cred li:last-child{border-bottom:0;padding-bottom:0}
+.cred .sub{display:block;font-family:var(--mono);font-size:11.5px;color:var(--text-dim);font-weight:400;margin-top:3px}
+
+/* contact */
+.contact-box{text-align:center;padding:64px 32px;border-radius:26px;border:1px solid var(--stroke);background:radial-gradient(120% 130% at 50% 0%,rgba(167,139,250,.20),rgba(255,125,92,.07) 45%,transparent 72%),var(--surface)}
+.contact-box h2{font-size:clamp(1.75rem,4.5vw,2.5rem)}
+.contact-box p{color:var(--text-dim);max-width:52ch;margin:0 auto 30px}
+.contact-actions{display:flex;flex-wrap:wrap;gap:13px;justify-content:center}
+footer{border-top:1px solid var(--stroke);padding:28px 0;position:relative;z-index:2}
+.foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:12.5px;color:var(--text-dim)}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--iris);outline-offset:3px;border-radius:8px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.001ms!important}
+  .rv{opacity:1;transform:none}
+}
+
+@media (max-width:940px){
+  .nav-links{display:none}
+  .burger{display:grid;place-items:center}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  section{padding:74px 0}
+  .head{margin-bottom:36px}
+  .hero{padding:104px 0 64px}
+  .btn{width:100%;justify-content:center}
+  .contact-box{padding:44px 20px}
+  .contact-actions .btn{width:100%}
+  .tl{padding-left:26px}
+  .job::before{left:-26px;width:13px;height:13px}
+  .skill,.proj,.cred{padding:24px 20px}
+  .foot{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="aura" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="grid-fade" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top"><span class="chip">SD</span> Sandeep Devarapalli</a>
+    <nav class="nav-links">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+      <a href="#projects">Projects</a><a href="#certificates">Certificates</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <button class="close" id="close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+  <a href="#projects">Projects</a><a href="#certificates">Certificates</a><a href="#contact">Contact</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <span class="badge"><i class="fa-solid fa-circle"></i> Connecticut, USA · Open to relocate</span>
+    <h1>Sandeep<br /><span class="grad">Devarapalli</span></h1>
+    <div class="typeline"><span id="type"></span><span class="cursor">&nbsp;</span></div>
+    <p class="lede">
+      AI/ML engineer with 5+ years designing and deploying machine learning, deep learning and generative AI systems —
+      LLM applications, RAG pipelines, computer vision and the MLOps that carries them into production.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Get in touch</a>
+      <a class="btn ghost" href="#projects"><i class="fa-solid fa-layer-group"></i> See projects</a>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/devarapalli-ventata-sai-sandeep-878839177/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="mailto:devarapallisaisandeep@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="tel:+14753357522" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+    </div>
+    <div class="domains">
+      <span>Healthcare</span><span>Financial Services</span><span>Enterprise</span>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about rv">
+    <div class="head" style="margin-bottom:24px">
+      <span class="eyebrow">About</span>
+      <h2>From model to production</h2>
+    </div>
+    <p>
+      I build AI systems that survive contact with real users. My work spans large language models, retrieval-augmented
+      generation, NLP, computer vision and MLOps — with a consistent focus on getting models out of notebooks and into
+      services people depend on.
+    </p>
+    <p>
+      At Elevance Health I architect enterprise LLM applications for clinical knowledge retrieval, build RAG pipelines
+      over healthcare knowledge bases, and run the cloud-native MLOps that keeps them deployed and monitored. Before
+      that I built predictive analytics for credit risk and fraud detection at JP Morgan, and started out at Mphasis
+      turning messy enterprise data into models and automated pipelines.
+    </p>
+    <p>
+      I work in Python across TensorFlow, PyTorch and the Hugging Face stack, deploy on AWS and Azure with Docker and
+      Kubernetes, and care as much about inference latency and model monitoring as about validation scores.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="head mid rv">
+      <span class="eyebrow">Toolkit</span>
+      <h2>What I work with</h2>
+      <p>Modelling, generative AI and the engineering that puts both into production.</p>
+    </div>
+    <div class="skills">
+      <div class="skill card rv"><i class="ic fa-solid fa-wand-magic-sparkles"></i><h3>Generative AI &amp; LLMs</h3>
+        <ul class="tags"><li>GPT-4</li><li>GPT-4o</li><li>OpenAI API</li><li>LangChain</li><li>LangGraph</li><li>LlamaIndex</li><li>Hugging Face</li><li>BERT</li><li>RAG</li><li>Prompt Engineering</li><li>AI Agents</li></ul></div>
+      <div class="skill card rv"><i class="ic fa-solid fa-brain"></i><h3>Machine Learning</h3>
+        <ul class="tags"><li>Scikit-learn</li><li>XGBoost</li><li>LightGBM</li><li>CatBoost</li><li>Supervised</li><li>Unsupervised</li><li>Ensembles</li><li>Feature Engineering</li><li>Cross-Validation</li><li>Hyperparameter Tuning</li></ul></div>
+      <div class="skill card rv"><i class="ic fa-solid fa-diagram-project"></i><h3>Deep Learning</h3>
+        <ul class="tags"><li>TensorFlow</li><li>PyTorch</li><li>Keras</li><li>CNN</li><li>RNN</li><li>LSTM</li><li>GRU</li><li>Transfer Learning</li><li>Neural Networks</li></ul></div>
+      <div class="skill card rv"><i class="ic fa-solid fa-eye"></i><h3>NLP, Vision &amp; Vector DBs</h3>
+        <ul class="tags"><li>Text Classification</li><li>NER</li><li>Sentiment Analysis</li><li>Semantic Search</li><li>OpenCV</li><li>YOLO</li><li>Object Detection</li><li>Segmentation</li><li>OCR</li><li>FAISS</li><li>ChromaDB</li><li>Pinecone</li></ul></div>
+      <div class="skill card rv"><i class="ic fa-solid fa-infinity"></i><h3>MLOps, APIs &amp; Cloud</h3>
+        <ul class="tags"><li>MLflow</li><li>Docker</li><li>Kubernetes</li><li>FastAPI</li><li>Flask</li><li>REST APIs</li><li>Model Versioning</li><li>Model Monitoring</li><li>CI/CD</li><li>Azure ML</li><li>AWS SageMaker</li><li>Amazon Bedrock</li><li>Lambda</li><li>S3 / EC2 / ECR</li></ul></div>
+      <div class="skill card rv"><i class="ic fa-solid fa-chart-simple"></i><h3>Data Engineering</h3>
+        <ul class="tags"><li>Pandas</li><li>NumPy</li><li>Data Cleaning</li><li>Preprocessing</li><li>EDA</li><li>ETL Pipelines</li><li>Data Visualization</li><li>Apache Airflow</li></ul></div>
+      <div class="skill card rv"><i class="ic fa-solid fa-code"></i><h3>Languages &amp; Tools</h3>
+        <ul class="tags"><li>Python</li><li>SQL</li><li>Java</li><li>JavaScript</li><li>TypeScript</li><li>Bash</li><li>YAML</li><li>PostgreSQL</li><li>MySQL</li><li>Git</li><li>Agile / Scrum</li><li>Unit Testing</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="head rv"><span class="eyebrow">Experience</span><h2>Where I've worked</h2></div>
+    <div class="tl">
+      <article class="job now rv">
+        <span class="when">Jan 2024 — Present</span>
+        <h3>Generative AI Engineer</h3>
+        <p class="co">Elevance Health · USA</p>
+        <ul>
+          <li>Architected enterprise-grade LLM applications with GPT-4, GPT-4o, LangChain, LlamaIndex and the OpenAI API to automate healthcare knowledge retrieval and clinical assistance.</li>
+          <li>Engineered RAG pipelines on FAISS, ChromaDB and Pinecone, improving document retrieval relevance by 35% and enabling context-aware responses across enterprise knowledge bases.</li>
+          <li>Designed NLP solutions with Hugging Face Transformers and BERT for medical document classification, named entity recognition, sentiment analysis and semantic search over large healthcare datasets.</li>
+          <li>Built autonomous AI agents to orchestrate multi-step workflows across clinical documentation, claims processing and support automation.</li>
+          <li>Implemented cloud-native MLOps on AWS SageMaker, Amazon Bedrock, Docker, Kubernetes, MLflow, ECR and CloudWatch for scalable training, deployment, monitoring and lifecycle management.</li>
+          <li>Developed high-performance inference services with FastAPI, REST APIs, AWS Lambda and EC2, cutting API response time by 30% while improving production scalability.</li>
+          <li>Integrated CI/CD pipelines with automated model versioning, experiment tracking and production monitoring for reliable model releases.</li>
+          <li>Partnered with data scientists, engineers, product owners and business stakeholders in Agile teams to deliver secure, production-ready AI.</li>
+        </ul>
+      </article>
+      <article class="job rv">
+        <span class="when">Jan 2022 — Dec 2022</span>
+        <h3>AI Engineer</h3>
+        <p class="co">JP Morgan · India</p>
+        <ul>
+          <li>Designed predictive analytics solutions with Scikit-learn, XGBoost and LightGBM to improve credit risk assessment, fraud detection and financial forecasting.</li>
+          <li>Engineered deep learning models using TensorFlow, PyTorch, CNN, LSTM and GRU for transaction anomaly detection and financial time-series analysis.</li>
+          <li>Applied feature engineering, hyperparameter tuning, ensemble learning and cross-validation to improve credit scoring accuracy and model robustness.</li>
+          <li>Built enterprise ETL pipelines in Python, SQL, Pandas and NumPy to process banking transactions and customer data, reducing preparation time by 40%.</li>
+          <li>Developed document verification with OpenCV, YOLO and OCR, integrating Azure Blob Storage to automate KYC processing with improved extraction accuracy.</li>
+          <li>Integrated AI services with enterprise banking applications via Java, REST APIs, JSON and SQL, enabling real-time fraud detection and risk prediction.</li>
+          <li>Managed PostgreSQL and MySQL databases, wrote unit tests and maintained Git repositories within Agile Scrum teams.</li>
+        </ul>
+      </article>
+      <article class="job rv">
+        <span class="when">Jun 2020 — Dec 2021</span>
+        <h3>Machine Learning Engineer</h3>
+        <p class="co">Mphasis · India</p>
+        <ul>
+          <li>Analysed structured and unstructured datasets in Python, SQL, Pandas and NumPy — cleaning, preprocessing and running EDA to prepare high-quality training data.</li>
+          <li>Built supervised and unsupervised models supporting customer behaviour analysis, classification and business intelligence initiatives.</li>
+          <li>Developed interactive visualization reports and dashboards to monitor model performance, operational trends and key business metrics.</li>
+          <li>Automated recurring workflows with Apache Airflow and Azure Machine Learning pipelines, reducing manual pipeline execution by 45%.</li>
+          <li>Conducted model evaluation, validation and benchmarking, improving model stability by 20% before production deployment.</li>
+          <li>Automated deployment workflows using Bash, YAML, Git and Azure Machine Learning, improving consistency and reducing manual effort.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="head mid rv">
+      <span class="eyebrow">Projects</span>
+      <h2>Selected work</h2>
+      <p>End-to-end systems — data pipeline through model to deployed API.</p>
+    </div>
+    <div class="projects">
+      <article class="proj card rv">
+        <span class="no">01</span>
+        <h3>AI-Powered Predictive Maintenance Platform</h3>
+        <p>Designed an end-to-end platform that analysed real-time IoT sensor data to identify equipment failures before breakdowns, enabling proactive maintenance planning. Built time-series forecasting and anomaly detection models in TensorFlow, Scikit-learn and XGBoost, orchestrated pipelines with Apache Airflow and tracked experiments in MLflow. Deployed scalable prediction services on FastAPI, Docker and AWS SageMaker, delivering failure predictions to maintenance teams through REST APIs.</p>
+        <ul class="tags"><li>Python</li><li>TensorFlow</li><li>Scikit-learn</li><li>XGBoost</li><li>Airflow</li><li>FastAPI</li><li>Docker</li><li>SageMaker</li><li>Amazon S3</li><li>MLflow</li></ul>
+      </article>
+      <article class="proj card rv">
+        <span class="no">02</span>
+        <h3>Multimodal AI Document Intelligence System</h3>
+        <p>Built a multimodal platform that extracts, understands and summarizes information from scanned documents, invoices, forms and images using OCR, computer vision and LLMs. Integrated GPT-4, LangChain, FAISS and ChromaDB for semantic document search, question answering and contextual retrieval across large repositories. Developed a responsive processing interface in TypeScript, JavaScript and FastAPI so enterprise users could securely interact with the AI services.</p>
+        <ul class="tags"><li>Python</li><li>GPT-4</li><li>OpenAI API</li><li>LangChain</li><li>Hugging Face</li><li>OpenCV</li><li>OCR</li><li>FAISS</li><li>ChromaDB</li><li>FastAPI</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+    <div class="head mid rv"><span class="eyebrow">Certificates</span><h2>Certifications &amp; education</h2></div>
+    <div class="creds">
+      <div class="cred card rv">
+        <h3><i class="fa-solid fa-certificate"></i> Certifications</h3>
+        <ul>
+          <li>AWS Certified Machine Learning<span class="sub">Amazon Web Services</span></li>
+          <li>Microsoft Certified: Azure AI Engineer Associate<span class="sub">Microsoft</span></li>
+        </ul>
+      </div>
+      <div class="cred card rv">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+        <ul>
+          <li>Master's in Computer Science<span class="sub">University of New Haven, USA · Dec 2024</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box rv">
+      <span class="eyebrow" style="justify-content:center">Contact</span>
+      <h2>Let's build something intelligent</h2>
+      <p>Open to AI/ML and generative AI engineering roles across the United States and happy to relocate. Email is fastest — I reply the same day.</p>
+      <div class="contact-actions">
+        <a class="btn primary" href="mailto:devarapallisaisandeep@gmail.com"><i class="fa-solid fa-envelope"></i> devarapallisaisandeep@gmail.com</a>
+        <a class="btn ghost" href="tel:+14753357522"><i class="fa-solid fa-phone"></i> +1 (475) 335-7522</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/devarapalli-ventata-sai-sandeep-878839177/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Sandeep Devarapalli</span>
+    <span>AI/ML Engineer · Connecticut, USA</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+var nav = document.getElementById('nav');
+addEventListener('scroll', function () { nav.classList.toggle('stuck', scrollY > 30); }, { passive: true });
+
+var burger = document.getElementById('burger'), drawer = document.getElementById('drawer'), close = document.getElementById('close');
+function setMenu(open) {
+  drawer.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+burger.addEventListener('click', function () { setMenu(true); });
+close.addEventListener('click', function () { setMenu(false); });
+drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+var io = new IntersectionObserver(function (es) {
+  es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+document.querySelectorAll('.rv').forEach(function (el, i) {
+  el.style.transitionDelay = (i % 4) * 70 + 'ms';
+  io.observe(el);
+});
+
+var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var roles = ['AI/ML Engineer', 'Generative AI & LLMs', 'RAG & Semantic Search', 'Deep Learning', 'MLOps & Deployment'];
+var el = document.getElementById('type');
+if (reduce) { el.textContent = roles[0]; }
+else {
+  var r = 0, c = 0, del = false;
+  (function tick() {
+    var w = roles[r];
+    el.textContent = del ? w.slice(0, --c) : w.slice(0, ++c);
+    var wait = del ? 45 : 85;
+    if (!del && c === w.length) { wait = 1600; del = true; }
+    else if (del && c === 0) { del = false; r = (r + 1) % roles.length; wait = 350; }
+    setTimeout(tick, wait);
+  })();
+}
+</script>
+</body>
+</html>
